@@ -1,67 +1,73 @@
+/* 1. 커스텀 폰트(글꼴) 불러오기 */
 @font-face {
-  font-family: "main";
+  font-family: "main"; /* 기본 텍스트에 사용할 폰트 이름 지정 */
   src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/Giants-Regular.woff2")
     format("woff2");
 }
 
 @font-face {
-  font-family: "big";
+  font-family: "big"; /* 강조할 제목 등에 사용할 두꺼운 폰트 이름 지정 */
   src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/2410-2@1.0/STUNNING-Bd.woff2")
     format("woff2");
 }
 
+/* 2. 웹페이지 전체(body) 레이아웃 설정 */
 body {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start; /* 상단 기준 정렬 */
-  margin: 0;
-  padding: 40px;
-  background-color: #fff;
-  font-family: "main", sans-serif;
+  display: flex; /* 화면을 유연하게 나누기 위해 flexbox 사용 */
+  flex-direction: row; /* 요소들을 가로(왼쪽에서 오른쪽)로 배치 (왼쪽 사이드바, 오른쪽 메인 콘텐츠) */
+  align-items: flex-start; /* 요소들을 화면 위쪽(상단)을 기준으로 정렬 */
+  margin: 0; /* 브라우저 기본 여백 없애기 */
+  padding: 40px; /* 화면 전체 안쪽 여백 설정 */
+  background-color: #fff; /* 배경색을 흰색으로 설정 */
+  font-family:
+    "main", sans-serif; /* 기본 글꼴을 위에서 불러온 "main"으로 설정 */
 }
 
+/* 3. 왼쪽 사이드바 영역 설정 */
 .aside {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 1px solid #555;
-  width: 24%;
-  min-width: 260px; /* 화면이 작아져도 사이드바 형태를 유지하도록 최소 너비 설정 */
-  height: 750px;
-  margin-top: 40px;
-  border-radius: 20px;
-  padding-top: 50px;
-  box-sizing: border-box;
+  flex-direction: column; /* 사이드바 안의 요소들(프로필, 메뉴 등)을 세로로 배치 */
+  align-items: center; /* 세로 배치된 요소들을 가로 중앙에 정렬 */
+  border: 1px solid #555; /* 짙은 회색 테두리 선 */
+  width: 24%; /* 사이드바가 화면 전체 너비의 24%를 차지하도록 설정 */
+  min-width: 260px; /* 화면이 아무리 작아져도 사이드바 너비가 260px 밑으로 줄어들지 않게 고정 (형태 유지) */
+  height: 750px; /* 사이드바 높이 고정 */
+  margin-top: 40px; /* 위쪽 여백 */
+  border-radius: 20px; /* 테두리 모서리를 둥글게 깎음 */
+  padding-top: 50px; /* 안쪽 위 여백 */
+  box-sizing: border-box; /* 패딩(안쪽 여백)을 줘도 전체 너비/높이가 삐져나가지 않게 계산 */
 }
 
+/* 4. 프로필 관련 텍스트 영역 설정 */
 .side {
-  margin-bottom: 15px;
+  margin-bottom: 15px; /* 프로필 사진 아래 여백 */
 }
 
 .my {
-  font-size: 20px;
-  margin-bottom: 5px;
+  font-size: 20px; /* 사용자 닉네임 글자 크기 */
+  margin-bottom: 5px; /* 닉네임 아래 여백 */
 }
 
 .userid {
-  font-size: 14px;
-  color: #777;
+  font-size: 14px; /* 아이디 글자 크기 */
+  color: #777; /* 아이디 글자색을 연한 회색으로 설정 */
 }
 
+/* 5. 통계(게시물, 팔로워, 팔로잉 등) 영역 설정 */
 /* 통계 전체를 감싸는 박스 */
 .setting {
-  margin-top: 50px;
+  margin-top: 50px; /* 위쪽 여백 */
   display: flex;
-  flex-direction: column;
-  gap: 10px; /* 숫자와 글자 사이의 간격 */
+  flex-direction: column; /* 위아래(숫자 줄 - 글자 줄)로 배치 */
+  gap: 10px; /* 숫자 줄과 글자 줄 사이의 간격 */
 }
 
 /* 숫자 가로 정렬 */
 .up {
   display: flex;
-  justify-content: center;
-  flex-direction: row;
-  gap: 30px;
+  justify-content: center; /* 숫자들을 가운데로 모음 */
+  flex-direction: row; /* 가로로 배치 */
+  gap: 30px; /* 숫자들 사이의 간격 */
 }
 
 /* 글자 가로 정렬 */
@@ -69,77 +75,90 @@ body {
   display: flex;
   justify-content: center;
   flex-direction: row;
-  gap: 30px;
+  gap: 30px; /* 글자들 사이의 간격 */
 }
 
+/* 숫자와 글자 칸 너비 고정 */
 .up div,
 .down div {
-  width: 60px;
-  text-align: center;
+  width: 60px; /* 통계 하나당 너비를 60px로 고정해 위아래 줄을 딱 맞춤 */
+  text-align: center; /* 텍스트를 가운데 정렬 */
 }
 
+/* 6. 프로필 편집 버튼 설정 */
 .edit-profile {
   border: none;
-  outline: none;
-  border: 1px solid coral;
-  border-radius: 20px;
-  padding: 10px 90px;
-  margin-top: 40px;
-  background-color: #ff662f76;
-  cursor: pointer;
+  outline: none; /* 클릭 시 생기는 기본 파란색 외곽선 제거 */
+  border: 1px solid coral; /* 산호색 테두리 */
+  border-radius: 20px; /* 둥근 모서리 */
+  padding: 10px 90px; /* 버튼 안쪽 여백 (위아래 10px, 좌우 90px로 길쭉하게 만듦) */
+  margin-top: 40px; /* 버튼 위 여백 */
+  background-color: #ff662f76; /* 반투명한 주황색 배경 */
+  cursor: pointer; /* 마우스를 올렸을 때 클릭 가능한 손가락 모양으로 바뀜 */
 }
 
+/* 7. 사이드바 하단 메뉴 리스트 설정 */
 .memu {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 100%;
-  padding-left: 70px;
+  flex-direction: column; /* 메뉴 항목들을 세로로 나열 */
+  align-items: flex-start; /* 글씨들을 왼쪽으로 정렬 */
+  width: 100%; /* 메뉴 영역이 사이드바 너비를 꽉 채우게 함 */
+  padding-left: 70px; /* 글씨가 왼쪽 테두리에 붙지 않게 70px 띄워줌 */
   box-sizing: border-box;
   margin-top: 40px;
 }
 
 .memu div {
-  margin: 15px 0;
-  font-family: "main";
-  cursor: pointer;
+  /* 개별 메뉴 항목 설정 */
+  margin: 15px 0; /* 위아래 간격 설정 */
+  font-family: "main"; /* 메뉴 글씨체 지정 */
+  cursor: pointer; /* 마우스 올리면 손가락 모양 */
 }
 
 .memu i {
-  margin-right: 15px;
-  font-size: 18px;
+  /* 메뉴 옆에 붙는 폰트어썸 아이콘 설정 */
+  margin-right: 15px; /* 아이콘과 글자 사이 간격 */
+  font-size: 18px; /* 아이콘 크기 */
 }
 
+/* 8. 오른쪽 메인 콘텐츠 영역 설정 */
 /* 💡 메인 영역이 사이드바 옆의 나머지 공간을 유연하게 차지하도록 설정 */
 .main-content {
-  flex: 1;
+  flex: 1; /* 사이드바가 차지하고 남은 오른쪽 빈 공간을 모두 채움 */
   margin-left: 50px; /* 사이드바와의 간격 정돈 */
   margin-top: 40px; /* 사이드바 상단 여백과 통일 */
 }
 
 .content-title {
-  font-family: "big";
-  font-size: 24px;
-  margin-bottom: 30px;
-  color: #222;
+  /* 메인 영역 상단 제목(예: 게시물) 설정 */
+  font-family: "big"; /* 두꺼운 강조 폰트 적용 */
+  font-size: 24px; /* 글자 크기 */
+  margin-bottom: 30px; /* 제목 아래 여백 */
+  color: #222; /* 짙은 검은색 */
 }
 
+/* 9. 사진 갤러리 그리드(격자) 레이아웃 설정 */
 .image-gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px; /* 사진 사이 여백 */
-  width: 100%;
+  display: grid; /* 바둑판 형태로 사진을 정렬하기 위해 grid 적용 */
+  grid-template-columns: repeat(
+    3,
+    1fr
+  ); /* 1fr(비율) 크기로 3칸을 똑같이 나눔 (한 줄에 사진 3장) */
+  gap: 20px; /* 사진 사이 여백 (가로 세로 모두 20px) */
+  width: 100%; /* 갤러리가 메인 콘텐츠 너비를 꽉 채우게 함 */
 }
 
 .image-item {
+  /* 개별 사진을 담는 틀(액자) 설정 */
   width: 100%;
-  aspect-ratio: 1 / 1;
-  overflow: hidden;
-  border-radius: 15px;
+  aspect-ratio: 1 / 1; /* 가로세로 비율을 1:1(정사각형)로 고정 */
+  overflow: hidden; /* 사진이 액자(정사각형) 밖으로 튀어나가면 잘라내서 숨김 */
+  border-radius: 15px; /* 사진 모서리를 둥글게 깎음 */
 }
 
 .image-item img {
+  /* 틀 안에 들어가는 실제 이미지 설정 */
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: 100%; /* 액자 크기에 딱 맞게 채움 */
+  object-fit: cover; /* 비율이 찌그러지지 않게 꽉 채우면서, 남는 부분은 알아서 예쁘게 잘라냄 */
 }

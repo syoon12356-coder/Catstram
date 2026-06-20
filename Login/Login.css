@@ -1,152 +1,189 @@
-      @font-face {
-        font-family: "main";
-        src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/Giants-Regular.woff2")
-          format("woff2");
-        font-weight: 400;
-        font-display: swap;
-      }
-      @font-face {
-        font-family: "big";
-        src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/2410-2@1.0/STUNNING-Bd.woff2")
-          format("woff2");
-        font-weight: normal;
-        font-display: swap;
-      }
+/* ----------------------------------------
+         웹 폰트 설정 영역
+      ---------------------------------------- */
+/* 기본으로 사용할 폰트 설정 */
+@font-face {
+  font-family: "main";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/Giants-Regular.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-display: swap; /* 폰트가 로딩되는 동안 기본 폰트 먼저 표시 */
+}
 
-      body {
-        font-family: main;
-        background: linear-gradient(135deg, #fff4ef 0%, #fffaf7 100%);
-        margin: 0;
-        padding: 0;
-      }
+/* 강조 시 사용할 굵은 폰트 설정 */
+@font-face {
+  font-family: "big";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/2410-2@1.0/STUNNING-Bd.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-display: swap;
+}
 
-      .center {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        min-height: 100vh; /* 화면 전체 중앙에 오도록 설정 */
-        padding: 20px;
-      }
+/* ----------------------------------------
+         전체 기본 스타일
+      ---------------------------------------- */
+body {
+  font-family: main; /* 전체 기본 폰트를 'main'으로 지정 */
+  background: linear-gradient(
+    135deg,
+    #fff4ef 0%,
+    #fffaf7 100%
+  ); /* 따뜻한 느낌의 그라데이션 배경 */
+  margin: 0; /* 브라우저 기본 여백 제거 */
+  padding: 0;
+}
 
-      .logo-area {
-        margin-top: -50px; /* 마진 현실적으로 조정 */
-      }
+/* ----------------------------------------
+         레이아웃 설정
+      ---------------------------------------- */
+/* 화면 전체를 기준으로 요소를 정중앙에 배치 */
+.center {
+  display: flex;
+  justify-content: center; /* 가로 중앙 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
+  flex-direction: column; /* 요소들을 세로(위아래)로 배치 */
+  min-height: 100vh; /* 화면 전체 높이를 차지하도록 설정하여 중앙에 오도록 함 */
+  padding: 20px;
+}
 
-      .ico-area {
-        margin-top: 20px;
-        padding: 0;
-      }
+/* 로고 영역 마진 조정 */
+.logo-area {
+  margin-top: -50px; /* 시각적인 중앙 배치를 위해 위로 살짝 끌어올림 */
+}
 
-      .tab {
-        display: flex;
-        gap: 20px; /* 탭 버튼 사이 간격 최적화 */
-        margin-top: 40px; /* 공백 줄임 */
-      }
+/* 아이콘 영역 마진 조정 */
+.ico-area {
+  margin-top: 20px;
+  padding: 0;
+}
 
-      .tab button {
-        border: none;
-        border: 2px solid #ff672f;
-        background-color: hsla(21, 100%, 87%, 0.768);
-        border-radius: 20px;
-        cursor: pointer;
-        padding: 12px 30px; /* 탭 버튼 크기 최적화 */
-        font-family: main;
-        font-size: 16px;
-        transition: all 0.2s ease;
-      }
+/* ----------------------------------------
+         상단 탭 (로그인/회원가입 선택 등) 스타일
+      ---------------------------------------- */
+/* 탭 버튼들을 담는 컨테이너 */
+.tab {
+  display: flex;
+  gap: 20px; /* 탭 버튼 사이의 간격 */
+  margin-top: 40px; /* 위쪽 요소와의 공백 */
+}
 
-      .tab button.active {
-        background-color: #f8926c;
-        color: white;
-        border: 2px solid #ff672f;
-        box-shadow: 0 4px 10px rgba(225, 142, 83, 0.3);
-        transform: scale(1.05);
-      }
+/* 탭 버튼 기본 스타일 */
+.tab button {
+  border: none;
+  border: 2px solid #ff672f; /* 주황색 테두리 */
+  background-color: hsla(21, 100%, 87%, 0.768); /* 연한 살구색 배경 */
+  border-radius: 20px; /* 버튼을 둥글게 처리 */
+  cursor: pointer; /* 마우스를 올렸을 때 클릭(손가락) 모양으로 변경 */
+  padding: 12px 30px; /* 버튼 내부 여백 (위아래 12px, 양옆 30px) */
+  font-family: main;
+  font-size: 16px;
+  transition: all 0.2s ease; /* 호버/클릭 시 애니메이션을 부드럽게 처리 */
+}
 
-      .tab button:active {
-        transform: scale(1.1);
-      }
+/* 활성화된(현재 선택된) 탭 버튼 스타일 */
+.tab button.active {
+  background-color: #f8926c; /* 배경색을 진하게 변경 */
+  color: white; /* 글자색을 흰색으로 변경 */
+  border: 2px solid #ff672f;
+  box-shadow: 0 4px 10px rgba(225, 142, 83, 0.3); /* 아래쪽에 부드러운 그림자 추가 */
+  transform: scale(1.05); /* 버튼 크기를 살짝(5%) 키워 강조 */
+}
 
-      /* ★ [정렬의 핵심] 폼 레이아웃 수정 */
-      #login-form,
-      #signup-form {
-        margin-top: 30px;
-        width: 360px; /* 하단 버튼과 너비를 일치시킴 */
-        text-align: left; /* 내부 글자들을 왼쪽 정렬로 고정 */
-        background: white; /* 박스 형태로 만들어 정렬감을 높임 */
-        padding: 30px;
-        border-radius: 20px;
-        border: 1px solid #f1eae2;
-        box-shadow: 0 10px 30px rgba(255, 103, 47, 0.05);
-      }
+/* 탭 버튼을 마우스로 누르고 있는 동안의 효과 */
+.tab button:active {
+  transform: scale(1.1); /* 누를 때 조금 더 커지는 액션 */
+}
 
-      /* 폼 내부의 타이틀 명칭 (아이디, 비밀번호 등) */
-      #login-form p,
-      #signup-form p {
-        margin: 14px 0 6px 0; /* 위아래 간격 깔끔하게 분리 */
-        font-size: 14px;
-        color: #555;
-      }
+/* ----------------------------------------
+         입력 폼 (로그인/회원가입 박스) 스타일
+      ---------------------------------------- */
+/* ★ [정렬의 핵심] 폼 레이아웃 수정 */
+#login-form,
+#signup-form {
+  margin-top: 30px;
+  width: 360px; /* 하단 버튼과 너비를 일치시켜 통일감 부여 */
+  text-align: left; /* 내부 글자들을 왼쪽 정렬로 고정 */
+  background: white; /* 박스 형태를 강조하기 위해 흰색 배경 사용 */
+  padding: 30px; /* 박스 안쪽 여백 */
+  border-radius: 20px; /* 모서리를 둥글게 처리 */
+  border: 1px solid #f1eae2; /* 연한 테두리 선 */
+  box-shadow: 0 10px 30px rgba(255, 103, 47, 0.05); /* 박스 주변에 은은한 그림자 추가 */
+}
 
-      /* 인풋창 스타일 정렬 */
-      #login-form input,
-      #signup-form input {
-        border: none;
-        border: 1px solid #cac5be;
-        border-radius: 10px; /* 조금 더 부드러운 라운딩 */
-        padding: 12px 15px;
-        width: 100%; /* 부모 너비(360px - 패딩)에 꽉 차게 설정 */
-        box-sizing: border-box; /* 패딩이 너비를 안 넘치게 제어 */
-        background-color: #faf5f0;
-        font-family: main;
-        font-size: 15px;
-      }
+/* 폼 내부의 타이틀 명칭 (예: '아이디', '비밀번호' 등) */
+#login-form p,
+#signup-form p {
+  margin: 14px 0 6px 0; /* 위아래 간격을 주어 텍스트와 입력창을 깔끔하게 분리 */
+  font-size: 14px;
+  color: #555; /* 짙은 회색으로 가독성 확보 */
+}
 
-      #login-form input:focus,
-      #signup-form input:focus {
-        outline: none;
-        border-color: #ff672f;
-        background-color: white;
-        box-shadow: 0 0 8px rgba(255, 103, 47, 0.15);
-        transition: all 0.2s ease;
-      }
+/* 인풋창(입력 칸) 기본 스타일 정렬 */
+#login-form input,
+#signup-form input {
+  border: none;
+  border: 1px solid #cac5be; /* 기본 테두리 색상 */
+  border-radius: 10px; /* 부드러운 라운딩 처리 */
+  padding: 12px 15px; /* 텍스트 입력부 여백 */
+  width: 100%; /* 부모 요소 너비에 꽉 차게 설정 (360px 기준) */
+  box-sizing: border-box; /* 패딩과 테두리를 너비에 포함시켜 밖으로 삐져나가지 않게 제어 */
+  background-color: #faf5f0; /* 인풋창 내부 배경색을 연한 베이지색으로 지정 */
+  font-family: main;
+  font-size: 15px;
+}
 
-      #login-form input::placeholder,
-      #signup-form input::placeholder {
-        transition: color 0.2s ease;
-        color: #a09990;
-      }
+/* 인풋창 클릭 시 (포커스 활성화) 상태 */
+#login-form input:focus,
+#signup-form input:focus {
+  outline: none; /* 브라우저 기본 파란색 포커스 테두리 제거 */
+  border-color: #ff672f; /* 브랜드 컬러인 주황색 테두리로 강조 */
+  background-color: white; /* 배경색을 흰색으로 변경해 입력부 부각 */
+  box-shadow: 0 0 8px rgba(255, 103, 47, 0.15); /* 은은한 주황색 글로우(빛) 효과 */
+  transition: all 0.2s ease; /* 전환 효과를 부드럽게 */
+}
 
-      #login-form input:focus::placeholder,
-      #signup-form input:focus::placeholder {
-        color: transparent;
-      }
+/* 인풋창 플레이스홀더 (입력 전 안내 문구) 스타일 */
+#login-form input::placeholder,
+#signup-form input::placeholder {
+  transition: color 0.2s ease;
+  color: #a09990; /* 안내 문구를 회색으로 표시 */
+}
 
-      /* 하단 전송 버튼 영역 */
-      .btn {
-        margin-top: 30px; /* 기존 60px에서 반으로 줄여 컴팩트하게 변경 */
-      }
+/* 인풋창 클릭(포커스) 시 플레이스홀더 숨김 처리 */
+#login-form input:focus::placeholder,
+#signup-form input:focus::placeholder {
+  color: transparent; /* 글자색을 투명하게 만들어 사라지는 효과 */
+}
 
-      .btn button {
-        outline: none;
-        border: none;
-        border: 2px solid #ff672f;
-        background-color: hsla(21, 100%, 87%, 0.768);
-        width: 100%; /* 폼 박스 너비에 맞춰 자동 100% */
-        border-radius: 12px;
-        cursor: pointer;
-        padding: 14px 0; /* 상하 패딩만 주어 깔끔하게 정렬 */
-        font-size: 16px;
-        font-family: main;
-        transition: all 0.3s ease;
-      }
+/* ----------------------------------------
+         하단 제출(Submit) 버튼 영역
+      ---------------------------------------- */
+/* 하단 전송 버튼을 감싸는 영역 */
+.btn {
+  margin-top: 30px; /* 위쪽 폼 요소와의 간격을 컴팩트하게 설정 */
+}
 
-      .btn button.clicked {
-        font-family: big;
-        background-color: #f8926c;
-        color: white;
-        border: 2px solid #ff672f;
-        box-shadow: 0 4px 10px rgba(225, 142, 83, 0.3);
-        transform: scale(1.03);
-      }
+/* 하단 전송 버튼 기본 스타일 */
+.btn button {
+  outline: none;
+  border: none;
+  border: 2px solid #ff672f;
+  background-color: hsla(21, 100%, 87%, 0.768);
+  width: 100%; /* 폼 박스 너비(360px)에 맞춰 꽉 차게 표시 */
+  border-radius: 12px;
+  cursor: pointer;
+  padding: 14px 0; /* 좌우 패딩을 없애고 100% 너비 안에서 텍스트 자동 중앙 정렬 */
+  font-size: 16px;
+  font-family: main;
+  transition: all 0.3s ease; /* 부드러운 상태 변화 적용 */
+}
+
+/* 클릭/활성화된 상태의 제출 버튼 스타일 */
+.btn button.clicked {
+  font-family: big; /* 굵은 폰트(STUNNING)로 변경하여 텍스트 강조 */
+  background-color: #f8926c; /* 배경색 진하게 */
+  color: white; /* 텍스트 흰색 */
+  border: 2px solid #ff672f;
+  box-shadow: 0 4px 10px rgba(225, 142, 83, 0.3); /* 그림자 추가 */
+  transform: scale(1.03); /* 버튼 크기를 살짝(3%) 키워 강조 */
+}

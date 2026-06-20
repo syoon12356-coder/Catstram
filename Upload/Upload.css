@@ -1,418 +1,392 @@
-      /* 기본 리셋 및 폰트 설정 */
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-      body {
-        font-family: "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
-        background-color: #fafafa; /* 웹에 어울리는 밝고 넓은 배경색 */
-        color: #333;
-        line-height: 1.6;
-        background-color: #ffbd9049;
-      }
+/* 기본 리셋 및 폰트 설정 */
+* {
+  box-sizing: border-box; /* 테두리와 안쪽 여백(padding)을 포함해서 전체 크기를 계산하게 만듭니다. (크기 조절이 편해져요) */
+  margin: 0; /* 브라우저가 기본으로 주는 바깥 여백을 모두 없앱니다. */
+  padding: 0; /* 브라우저가 기본으로 주는 안쪽 여백을 모두 없앱니다. */
+}
 
-      /* 메인 웹 컨테이너 (고정된 높이와 좁은 너비 제거) */
-      .web-container {
-        width: 100%;
-        max-width: 800px; /* 폼을 넓게 사용 */
-        margin: 60px auto;
-        background-color: #fff;
-        border-radius: 12px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-        border: 1px solid #e5e5e5;
-        padding: 40px;
-      }
+body {
+  font-family:
+    "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; /* 애플 산돌고딕을 1순위, 맑은 고딕을 2순위 폰트로 사용합니다. */
+  background-color: #fafafa; /* 웹에 어울리는 밝고 넓은 배경색 (아래 속성 때문에 무시됨) */
+  color: #333; /* 기본 글자색을 짙은 회색으로 설정하여 눈의 피로를 덜어줍니다. */
+  line-height: 1.6; /* 줄 간격을 글자 크기의 1.6배로 넓혀서 읽기 편하게 만듭니다. */
+  background-color: #ffbd9049; /* 💡 최종적으로 적용되는 옅은 주황빛 반투명 배경색입니다. */
+}
 
-      /* 1. 상단 타이틀 영역 */
-      .page-header {
-        border-bottom: 2px solid #f0f0f0;
-        padding-bottom: 20px;
-        margin-bottom: 30px;
-      }
-      .header-title {
-        font-size: 24px;
-        font-weight: bold;
-        color: #222;
-      }
+/* 메인 웹 컨테이너 (고정된 높이와 좁은 너비 제거) */
+.web-container {
+  width: 100%; /* 화면 너비를 꽉 채우되, */
+  max-width: 800px; /* 아무리 창이 커져도 최대 너비는 800px까지만 늘어나게 막아둡니다. (폼을 넓게 사용) */
+  margin: 60px auto; /* 위아래 여백 60px, 좌우 여백은 auto로 주어 화면 '정중앙'에 오도록 배치합니다. */
+  background-color: #fff; /* 컨테이너 배경은 하얀색 */
+  border-radius: 12px; /* 모서리를 12px만큼 둥글게 깎아줍니다. */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* 박스 주변에 아주 연한 그림자를 깔아 입체감을 줍니다. */
+  border: 1px solid #e5e5e5; /* 옅은 회색 테두리를 그립니다. */
+  padding: 40px; /* 박스 안쪽으로 40px의 넉넉한 여백을 줍니다. */
+}
 
-      /* 폼 섹션 공통 */
-      .section {
-        margin-bottom: 36px;
-      }
-      .section-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
-        margin-bottom: 12px;
-      }
-      .section-title {
-        font-size: 16px;
-        font-weight: bold;
-        color: #222;
-      }
-      .section-desc {
-        font-size: 13px;
-        color: #888;
-      }
+/* 1. 상단 타이틀 영역 */
+.page-header {
+  border-bottom: 2px solid #f0f0f0; /* 제목 아래에 연한 회색 구분선을 긋습니다. */
+  padding-bottom: 20px; /* 선과 제목 사이의 간격 */
+  margin-bottom: 30px; /* 선 아래쪽 컨텐츠와의 간격 */
+}
+.header-title {
+  font-size: 24px; /* 메인 제목 크기 */
+  font-weight: bold; /* 글씨를 두껍게 */
+  color: #222;
+}
 
-      /* 2. 사진 추가 영역 (가로 스크롤 대신 그리드 정렬) */
-      .photo-gallery {
-        display: flex;
-        flex-wrap: wrap; /* 창 밖으로 나가지 않고 아래로 떨어짐 */
-        gap: 16px;
-        margin-top: 12px;
-      }
-      .btn-add-photo {
-        width: 120px;
-        height: 120px;
-        border: 2px dashed #ffd6c9;
-        border-radius: 8px;
-        background-color: #fff5f2;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        color: #ff5a23;
-        font-size: 14px;
-        font-weight: bold;
-        transition: 0.2s;
-      }
-      .btn-add-photo:hover {
-        background-color: #ffeae3;
-      }
-      .photo-item {
-        position: relative;
-        width: 120px;
-        height: 120px;
-      }
-      .photo-item img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 8px;
-        border: 1px solid #eee;
-      }
-      .btn-delete-photo {
-        position: absolute;
-        top: -8px;
-        right: -8px;
-        width: 24px;
-        height: 24px;
-        background-color: rgba(0, 0, 0, 0.7);
-        color: white;
-        border: none;
-        border-radius: 50%;
-        cursor: pointer;
-        font-size: 12px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: 0.2s;
-      }
-      .btn-delete-photo:hover {
-        background-color: #000;
-      }
+/* 폼 섹션 공통 (사진 추가, 캡션 등 각 구역을 나누는 기본 틀) */
+.section {
+  margin-bottom: 36px; /* 각 구역 사이의 간격을 넓게 띄워줍니다. */
+}
+.section-header {
+  display: flex; /* 제목과 설명을 나란히 배치하기 위해 flexbox 사용 */
+  justify-content: space-between; /* 양쪽 끝으로 벌려서 띄워놓습니다. */
+  align-items: baseline; /* 글자의 '밑선'을 기준으로 나란히 정렬합니다. */
+  margin-bottom: 12px;
+}
+.section-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #222;
+}
+.section-desc {
+  font-size: 13px;
+  color: #888; /* 설명글은 덜 튀게 연한 회색으로 처리합니다. */
+}
 
-      /* 3. 캡션 입력창 */
-      .caption-box {
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        padding: 16px;
-        transition: 0.2s;
-      }
-      .caption-box:focus-within {
-        border-color: #ff5a23;
-      }
-      textarea {
-        width: 100%;
-        height: 140px;
-        border: none;
-        resize: vertical; /* 마우스로 크기 조절 가능 */
-        outline: none;
-        font-size: 15px;
-        font-family: inherit;
-      }
-      .char-counter {
-        text-align: right;
-        font-size: 13px;
-        color: #999;
-        margin-top: 8px;
-      }
+/* 2. 사진 추가 영역 (가로 스크롤 대신 그리드 정렬) */
+.photo-gallery {
+  display: flex;
+  flex-wrap: wrap; /* 사진이 많아져서 창 너비를 넘어가면, 창 밖으로 나가지 않고 아랫줄로 떨어지게(wrap) 만듭니다. */
+  gap: 16px; /* 사진들 사이의 상하좌우 간격 */
+  margin-top: 12px;
+}
+.btn-add-photo {
+  width: 120px;
+  height: 120px;
+  border: 2px dashed #ffd6c9; /* 테두리를 주황빛 '점선(dashed)'으로 만듭니다. */
+  border-radius: 8px;
+  background-color: #fff5f2; /* 연한 살구색 배경 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; /* 안의 내용물(아이콘, 글자 등)을 정중앙에 배치 */
+  cursor: pointer; /* 마우스 올리면 클릭하는 손가락 모양으로 변경 */
+  color: #ff5a23;
+  font-size: 14px;
+  font-weight: bold;
+  transition: 0.2s; /* 마우스를 올렸을 때 0.2초에 걸쳐 부드럽게 색이 변하게 합니다. */
+}
+.btn-add-photo:hover {
+  background-color: #ffeae3; /* 마우스를 올리면(hover) 배경색을 조금 더 진하게 만듭니다. */
+}
+.photo-item {
+  position: relative; /* 자식 요소인 '삭제 버튼(btn-delete-photo)'이 이 사진 박스를 기준으로 위치를 잡도록 기준점이 됩니다. */
+  width: 120px;
+  height: 120px;
+}
+.photo-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 사진 비율이 깨지지 않게 꽉 채우고 남는 부분은 잘라냅니다. */
+  border-radius: 8px;
+  border: 1px solid #eee;
+}
+.btn-delete-photo {
+  position: absolute; /* 부모(photo-item)를 기준으로 내 마음대로 위치를 띄웁니다. */
+  top: -8px; /* 사진 위쪽 테두리에서 8px 위로 튀어나가게 올립니다. */
+  right: -8px; /* 사진 오른쪽 테두리에서 8px 바깥으로 튀어나가게 뺍니다. (모서리에 걸치게 됨) */
+  width: 24px;
+  height: 24px;
+  background-color: rgba(0, 0, 0, 0.7); /* 반투명한 검은색 배경 */
+  color: white; /* X 모양 글자는 하얀색 */
+  border: none; /* 기본 테두리 없앰 */
+  border-radius: 50%; /* 완전한 동그라미로 만듭니다. */
+  cursor: pointer;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* X 글자를 동그라미 정중앙에 둡니다. */
+  transition: 0.2s;
+}
+.btn-delete-photo:hover {
+  background-color: #000; /* 마우스 올리면 완전한 까만색으로 변함 */
+}
 
-      /* 4. 태그 영역 */
-      .tag-wrapper {
-        position: relative;
-      }
-      .tag-input-box {
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        padding: 16px;
-        display: flex;
-        transition: 0.2s;
-      }
-      .tag-input-box:focus-within {
-        border-color: #ff5a23;
-      }
-      .tag-input-box input {
-        border: none;
-        outline: none;
-        width: 100%;
-        font-size: 15px;
-      }
+/* 3. 캡션(설명글) 입력창 */
+.caption-box {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  transition: 0.2s;
+}
+.caption-box:focus-within {
+  /* 입력창 안을 클릭해서 커서가 깜빡일 때(focus) 테두리 색을 주황색으로 바꿉니다. */
+  border-color: #ff5a23;
+}
+textarea {
+  width: 100%;
+  height: 140px;
+  border: none;
+  resize: vertical; /* 사용자가 마우스로 입력창의 '높이(세로)'만 조절할 수 있게 허용합니다. (가로는 조절 불가) */
+  outline: none; /* 클릭 시 생기는 기본 파란색 아웃라인 제거 */
+  font-size: 15px;
+  font-family: inherit; /* 글꼴을 부모(body)의 글꼴과 똑같이 따라가게 합니다. */
+}
+.char-counter {
+  text-align: right; /* 글자 수 세는 숫자를 오른쪽으로 밀어버립니다. */
+  font-size: 13px;
+  color: #999;
+  margin-top: 8px;
+}
 
-      /* 자동완성 드롭다운 */
-      .autocomplete {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: white;
-        border: 1px solid #eee;
-        border-radius: 8px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        margin-top: 8px;
-        z-index: 20;
-        overflow: hidden;
-      }
-      .autocomplete.show {
-        display: block;
-      }
-      .auto-item {
-        padding: 14px 16px;
-        font-size: 14px;
-        color: #444;
-        cursor: pointer;
-      }
-      .auto-item:hover {
-        background-color: #fff5f2;
-        color: #ff5a23;
-        font-weight: bold;
-      }
+/* 4. 태그 영역 */
+.tag-wrapper {
+  position: relative; /* 자동완성 드롭다운 박스가 이 영역을 기준으로 아래에 매달리게 만듭니다. */
+}
+.tag-input-box {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  transition: 0.2s;
+}
+.tag-input-box:focus-within {
+  /* 태그창 클릭 시 테두리 주황색으로 변경 */
+  border-color: #ff5a23;
+}
+.tag-input-box input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 15px;
+}
 
-      /* 태그 칩 */
-      .tag-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        margin-top: 12px;
-      }
-      .tag-chip {
-        background-color: #fff5f2;
-        color: #ff5a23;
-        padding: 8px 16px;
-        border-radius: 20px;
-        font-size: 13px;
-        font-weight: bold;
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        cursor: pointer;
-        border: 1px solid #ffd6c9;
-        transition: 0.2s;
-      }
-      .tag-chip:hover {
-        background-color: #ffeae3;
-      }
+/* 자동완성 드롭다운 (태그 검색 시 밑에 뜨는 창) */
+.autocomplete {
+  display: none; /* 평소에는 화면에 보이지 않게 꽁꽁 숨겨둡니다. */
+  position: absolute; /* 검색창 바로 아래에 공중에 띄우듯이 배치합니다. */
+  top: 100%; /* 부모(태그 입력창)의 바로 아래 끝나는 지점부터 시작합니다. */
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-top: 8px;
+  z-index: 20; /* 다른 요소들보다 무조건 맨 위로(앞으로) 올라오게 순위를 높여줍니다. */
+  overflow: hidden; /* 모서리 둥근 범위를 넘어가는 내용은 잘라냅니다. */
+}
+.autocomplete.show {
+  display: block; /* 자바스크립트로 'show' 클래스가 붙으면 숨겨뒀던 창을 화면에 보여줍니다. */
+}
+.auto-item {
+  padding: 14px 16px;
+  font-size: 14px;
+  color: #444;
+  cursor: pointer;
+}
+.auto-item:hover {
+  /* 자동완성 목록에 마우스 올렸을 때 주황색으로 강조 */
+  background-color: #fff5f2;
+  color: #ff5a23;
+  font-weight: bold;
+}
 
-      /* 5. 위치 및 하단 버튼 영역 */
-      .bottom-wrapper {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 40px;
-        padding-top: 30px;
-        border-top: 2px solid #f0f0f0;
-      }
+/* 태그 칩 (선택된 태그 모양) */
+.tag-list {
+  display: flex;
+  flex-wrap: wrap; /* 태그가 길어지면 아랫줄로 넘김 */
+  gap: 8px;
+  margin-top: 12px;
+}
+.tag-chip {
+  background-color: #fff5f2;
+  color: #ff5a23;
+  padding: 8px 16px;
+  border-radius: 20px; /* 양옆이 완전히 둥근 알약 모양으로 만듭니다. */
+  font-size: 13px;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px; /* 태그 이름과 X 버튼 사이의 간격 */
+  cursor: pointer;
+  border: 1px solid #ffd6c9;
+  transition: 0.2s;
+}
+.tag-chip:hover {
+  background-color: #ffeae3;
+}
 
-      .btn-location {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        border: 1px solid #ddd;
-        background: white;
-        padding: 12px 20px;
-        border-radius: 8px;
-        cursor: pointer;
-        font-size: 14px;
-        color: #555;
-        transition: 0.2s;
-        font-weight: bold;
-      }
-      .btn-location:hover {
-        background-color: #fafafa;
-      }
-      .btn-location.active {
-        border-color: #ff5a23;
-        color: #ff5a23;
-        background-color: #fff5f2;
-      }
+/* 5. 위치 및 하단 버튼 영역 */
+.bottom-wrapper {
+  display: flex;
+  justify-content: space-between; /* 위치 버튼은 왼쪽, 취소/등록 버튼은 오른쪽으로 양끝 분리 */
+  align-items: center;
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 2px solid #f0f0f0; /* 위에 연한 가로선을 그어 구분해줍니다. */
+}
 
-      .action-buttons {
-        display: flex;
-        gap: 12px;
-      }
-      .btn-cancel {
-        background-color: #fff;
-        color: #555;
-        border: 1px solid #ddd;
-        padding: 12px 24px;
-        border-radius: 8px;
-        font-size: 15px;
-        font-weight: bold;
-        cursor: pointer;
-        transition: 0.2s;
-      }
-      .btn-cancel:hover {
-        background-color: #f0f0f0;
-      }
-      .btn-submit {
-        background-color: #ccc;
-        color: white;
-        border: none;
-        padding: 12px 32px;
-        border-radius: 8px;
-        font-size: 15px;
-        font-weight: bold;
-        cursor: not-allowed;
-        transition: 0.3s;
-      }
-      .btn-submit.active {
-        background-color: #ff5a23;
-        cursor: pointer;
-      }
-      .btn-submit.active:hover {
-        background-color: #e04e1e;
-      }
+/* 내 위치 추가 버튼 */
+.btn-location {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #ddd;
+  background: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #555;
+  transition: 0.2s;
+  font-weight: bold;
+}
+.btn-location:hover {
+  background-color: #fafafa;
+}
+.btn-location.active {
+  /* 위치가 활성화되었을 때 주황색 톤으로 확 눈에 띄게 변경 */
+  border-color: #ff5a23;
+  color: #ff5a23;
+  background-color: #fff5f2;
+}
 
-      /* 모달 (전체 브라우저 화면 덮기) */
-      .modal-overlay {
-        display: none;
-        position: fixed; /* absolute -> fixed 변경하여 전체화면 커버 */
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.6);
-        z-index: 1000;
-        justify-content: center;
-        align-items: center;
-      }
-      .modal-overlay.show {
-        display: flex;
-      }
+.action-buttons {
+  display: flex;
+  gap: 12px; /* 취소 버튼과 등록 버튼 사이의 간격 */
+}
+.btn-cancel {
+  /* 취소 버튼 기본 디자인 */
+  background-color: #fff;
+  color: #555;
+  border: 1px solid #ddd;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.btn-cancel:hover {
+  background-color: #f0f0f0;
+}
+.btn-submit {
+  /* 등록 버튼 기본 디자인 (비활성화 상태) */
+  background-color: #ccc; /* 처음엔 누를 수 없다는 뜻으로 회색으로 해둡니다. */
+  color: white;
+  border: none;
+  padding: 12px 32px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: not-allowed; /* 마우스 올리면 '금지' 모양의 커서가 뜹니다. */
+  transition: 0.3s;
+}
+.btn-submit.active {
+  /* 필수 내용을 다 채워서 'active' 클래스가 붙으면 */
+  background-color: #ff5a23; /* 눈에 띄는 주황색으로 바뀌고 */
+  cursor: pointer; /* 클릭 가능한 손가락 모양으로 커서가 바뀝니다. */
+}
+.btn-submit.active:hover {
+  background-color: #e04e1e; /* 마우스 올리면 약간 더 진해짐 */
+}
 
-      /* 취소 모달창 */
-      .modal-content {
-        background: white;
-        padding: 32px;
-        border-radius: 12px;
-        width: 100%;
-        max-width: 360px;
-        text-align: center;
-      }
-      .modal-title {
-        font-size: 18px;
-        font-weight: bold;
-        margin-bottom: 24px;
-        color: #222;
-      }
-      .modal-buttons {
-        display: flex;
-        gap: 12px;
-      }
-      .modal-buttons button {
-        flex: 1;
-        padding: 14px;
-        border: none;
-        border-radius: 8px;
-        font-weight: bold;
-        cursor: pointer;
-        font-size: 15px;
-      }
-      .btn-modal-close {
-        background-color: #eee;
-        color: #555;
-      }
-      .btn-modal-close:hover {
-        background-color: #e0e0e0;
-      }
-      .btn-modal-confirm {
-        background-color: #ff4d4d;
-        color: white;
-      }
-      .btn-modal-confirm:hover {
-        background-color: #e63939;
-      }
+/* 모달 (작성을 취소하시겠습니까? 같은 전체 팝업창) */
+.modal-overlay {
+  display: none; /* 평소엔 숨겨둠 */
+  position: fixed; /* 화면 스크롤을 내려도 항상 화면 전체에 고정되도록 fixed 사용 */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; /* 상하좌우 0을 줘서 브라우저 화면 전체를 꽉 채우게 덮습니다. */
+  background: rgba(
+    0,
+    0,
+    0,
+    0.6
+  ); /* 뒷배경을 약간 투명한 까만색으로 덮어 뒤를 어둡게 만듭니다. */
+  z-index: 1000; /* 엄청 높은 숫자를 줘서 무조건 화면 제일 앞쪽으로 튀어나오게 합니다. */
+  justify-content: center;
+  align-items: center; /* 까만 배경 한가운데에 모달 내용을 정렬합니다. */
+}
+.modal-overlay.show {
+  display: flex; /* 자바스크립트로 show가 붙으면 모달을 화면에 띄웁니다. */
+}
 
-      /* 로딩 스피너 */
-      .spinner {
-        width: 48px;
-        height: 48px;
-        border: 4px solid #f3f3f3;
-        border-top: 4px solid #ff5a23;
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
-        margin: 0 auto 16px auto;
-      }
-      @keyframes spin {
-        0% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg);
-        }
-      }
-      .loading-text {
-        font-weight: bold;
-        font-size: 16px;
-        color: #fff;
-      }
+/* 실제 모달 하얀색 박스 내용물 */
+.modal-content {
+  background: white;
+  padding: 32px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 360px; /* 팝업창이 너무 커지지 않게 최대 크기 고정 */
+  text-align: center; /* 글자를 가운데 정렬 */
+}
+.modal-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 24px;
+  color: #222;
+}
+.modal-buttons {
+  display: flex;
+  gap: 12px;
+}
+.modal-buttons button {
+  flex: 1; /* 닫기 버튼과 확인 버튼이 정확히 1:1 비율로 똑같은 너비를 나눠 갖게 합니다. */
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 15px;
+}
+.btn-modal-close {
+  background-color: #eee;
+  color: #555;
+}
+.btn-modal-close:hover {
+  background-color: #e0e0e0;
+}
+.btn-modal-confirm {
+  background-color: #ff4d4d; /* 삭제나 취소 등 주의가 필요한 확인 버튼은 빨간색으로 경고를 줍니다. */
+  color: white;
+}
+.btn-modal-confirm:hover {
+  background-color: #e63939;
+}
 
-      /* --- 하단 바 (Bottom Navigation) 스타일 --- */
-      .bottom-nav {
-        position: fixed; /* 화면 맨 아래에 고정 */
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 70px;
-        background-color: white;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        border-top: 1px solid #eee;
-        box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.05); /* 부드러운 그림자 */
-        z-index: 1000; /* 다른 요소들보다 항상 위에 보이도록 */
-      }
+/* 로딩 스피너 (데이터가 전송될 때 빙글빙글 도는 모양) */
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid #f3f3f3; /* 기본 동그라미 테두리는 연한 회색 */
+  border-top: 4px solid #ff5a23; /* 위쪽 테두리 딱 한 곳만 주황색으로 칠합니다. */
+  border-radius: 50%; /* 완전한 동그라미로 만듭니다. */
+  animation: spin 1s linear infinite; /* 아래 만들어둔 'spin' 애니메이션을 1초마다, 일정한 속도(linear)로, 무한히(infinite) 반복시킵니다. */
+  margin: 0 auto 16px auto; /* 가로 중앙에 배치하고 아래 여백을 줍니다. */
+}
 
-      .nav-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-decoration: none; /* a 태그 밑줄 제거 */
-        color: #aaa; /* 기본 회색 */
-        gap: 6px;
-        transition: color 0.2s ease;
-      }
+/* 빙글빙글 도는 애니메이션 규칙 정의 */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg); /* 0% (시작할 때)는 0도 */
+  }
+  100% {
+    transform: rotate(
+      360deg
+    ); /* 100% (끝날 때)는 360도를 돌게 해서 한 바퀴 뺑 돌게 만듭니다. */
+  }
+}
 
-      .nav-item i {
-        font-size: 28px;
-      }
-
-      .nav-item span {
-        font-size: 12px;
-        font-family: "main"; /* 기존에 쓰시던 폰트 적용 */
-      }
-
-      /* 마우스를 올리거나 활성화(active)된 탭의 색상 변경 */
-      .nav-item:hover,
-      .nav-item.active {
-        color: #ff4d6d; /* 예쁜 핑크색 */
-      }
-
-      /* 하단 바가 본문 내용을 가리지 않도록 여백 추가 */
-      main {
-        padding-bottom: 90px;
-      }
+.loading-text {
+  font-weight: bold;
+  font-size: 16px;
+  color: #fff;
+}
