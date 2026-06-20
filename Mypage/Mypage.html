@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mypage</title>
+    <link rel="icon" href="/images/ico.png" type="image/png" />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+<link rel="stylesheet" href="/Mypage/Mypage.css">
+  </head>
+  <body>
+    <aside
+      class="aside"
+      style="background-color: #fff4ef; border-color: hwb(19 29% 0%)"
+    >
+      <div class="side">
+        <img
+          src="/images/cat1.jpg"
+          style="
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+          "
+        />
+      </div>
+
+      <div style="font-family: big" class="my" id="profile-name">Meow Meow</div>
+      <div class="userid" id="profile-id">@iwantgotohome_now</div>
+
+      <div
+        class="setting"
+        style="background-color: white; border-radius: 10px; padding: 10px 10px"
+      >
+        <div class="up" style="font-family: big">
+          <div>24</div>
+          <div>128</div>
+          <div>86</div>
+        </div>
+        <div style="font-family: main" class="down">
+          <div>게시물</div>
+          <div>팔로워</div>
+          <div>팔로잉</div>
+        </div>
+      </div>
+
+      <button class="edit-profile" id="edit-btn">프로필 수정</button>
+
+      <div class="memu">
+        <div><i class="ph ph-upload-simple"></i>내 게시물</div>
+        <div><i class="ph ph-heart"></i>좋아요한 게시물</div>
+        <div><i class="ph ph-gear"></i>설정</div>
+        <div><i class="ph ph-sign-out"></i>로그아웃</div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="content-title">내 게시물</div>
+
+      <div class="image-gallery">
+        <div class="image-item">
+          <img src="/images/mypage1.jpg" alt="cat" />
+        </div>
+        <div class="image-item">
+          <img src="/images/mypage2.jpg" alt="cat" />
+        </div>
+        <div class="image-item">
+          <img src="/images/mypage3.jpg" alt="cat" />
+        </div>
+        <div class="image-item">
+          <img src="/images/mypage4.jpg" alt="cat" />
+        </div>
+        <div class="image-item">
+          <img src="/images/mypage5.jpg" alt="cat" />
+        </div>
+        <div class="image-item">
+          <img src="/images/mypage6.png" alt="cat" />
+        </div>
+      </div>
+    </main>
+
+    <nav class="bottom-nav">
+      <a href="/Main/Main.html" class="nav-item"
+        ><i class="ph-fill ph-house"></i><span>홈</span></a
+      >
+      <a href="/Upload/Upload.html" class="nav-item"
+        ><i class="ph ph-upload-simple"></i><span>업로드</span></a
+      >
+      <a href="/map/map.html" class="nav-item"
+        ><i class="ph ph-map-pin"></i><span>map</span></a
+      >
+      <a href="/Mypage/Mypage.html" class="nav-item active"
+        ><i class="ph ph-user-circle"></i><span>마이페이지</span></a
+      >
+    </nav>
+
+    <script src="/Mypage/Mypage.js">
+    </script>
+  </body>
+</html>

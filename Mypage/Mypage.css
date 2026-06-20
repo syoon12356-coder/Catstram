@@ -1,0 +1,192 @@
+      @font-face {
+        font-family: "main";
+        src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/Giants-Regular.woff2")
+          format("woff2");
+      }
+
+      @font-face {
+        font-family: "big";
+        src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/2410-2@1.0/STUNNING-Bd.woff2")
+          format("woff2");
+      }
+
+      /* 💡 핵심 수정: body를 가로 flex 박스로 만들어 사이드바와 메인을 옆으로 배치합니다 */
+      body {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start; /* 상단 기준 정렬 */
+        margin: 0;
+        padding: 40px;
+        background-color: #fff;
+        font-family: "main", sans-serif;
+      }
+
+      .aside {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid #555;
+        width: 24%;
+        min-width: 260px; /* 화면이 작아져도 사이드바 형태를 유지하도록 최소 너비 설정 */
+        height: 750px;
+        margin-top: 40px;
+        border-radius: 20px;
+        padding-top: 50px;
+        box-sizing: border-box;
+      }
+
+      .side {
+        margin-bottom: 15px;
+      }
+
+      .my {
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
+
+      .userid {
+        font-size: 14px;
+        color: #777;
+      }
+
+      /* 통계 전체를 감싸는 박스 */
+      .setting {
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px; /* 숫자와 글자 사이의 간격 */
+      }
+
+      /* 숫자 가로 정렬 */
+      .up {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        gap: 30px;
+      }
+
+      /* 글자 가로 정렬 */
+      .down {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        gap: 30px;
+      }
+
+      .up div,
+      .down div {
+        width: 60px;
+        text-align: center;
+      }
+
+      .edit-profile {
+        border: none;
+        outline: none;
+        border: 1px solid coral;
+        border-radius: 20px;
+        padding: 10px 90px;
+        margin-top: 40px;
+        background-color: #ff662f76;
+        cursor: pointer;
+      }
+
+      .memu {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        padding-left: 70px;
+        box-sizing: border-box;
+        margin-top: 40px;
+      }
+
+      .memu div {
+        margin: 15px 0;
+        font-family: "main";
+        cursor: pointer;
+      }
+
+      .memu i {
+        margin-right: 15px;
+        font-size: 18px;
+      }
+
+      /* 💡 메인 영역이 사이드바 옆의 나머지 공간을 유연하게 차지하도록 설정 */
+      .main-content {
+        flex: 1;
+        margin-left: 50px; /* 사이드바와의 간격 정돈 */
+        margin-top: 40px; /* 사이드바 상단 여백과 통일 */
+      }
+
+      .content-title {
+        font-family: "big";
+        font-size: 24px;
+        margin-bottom: 30px;
+        color: #222;
+      }
+
+      .image-gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px; /* 사진 사이 여백 */
+        width: 100%;
+      }
+
+      .image-item {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        overflow: hidden;
+        border-radius: 15px;
+      }
+
+      .image-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* --- 하단 바 (Bottom Navigation) 스타일 --- */
+      .bottom-nav {
+        position: fixed; /* 화면 맨 아래에 고정 */
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 70px;
+        background-color: white;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        border-top: 1px solid #eee;
+        box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.05); /* 부드러운 그림자 */
+        z-index: 1000; /* 다른 요소들보다 항상 위에 보이도록 */
+      }
+
+      .nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none; /* a 태그 밑줄 제거 */
+        color: #aaa; /* 기본 회색 */
+        gap: 6px;
+        transition: color 0.2s ease;
+      }
+
+      .nav-item i {
+        font-size: 28px;
+      }
+
+      .nav-item span {
+        font-size: 12px;
+        font-family: "main"; /* 기존에 쓰시던 폰트 적용 */
+      }
+
+      /* 마우스를 올리거나 활성화(active)된 탭의 색상 변경 */
+      .nav-item:hover,
+      .nav-item.active {
+        color: #ff4d6d; /* 예쁜 핑크색 */
+      }
+
+      /* 하단 바가 본문 내용을 가리지 않도록 여백 추가 */
+      main {
+        padding-bottom: 90px;
+      }
