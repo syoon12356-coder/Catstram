@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CatGPS</title>
-
     <link
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     />
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
-<link rel="stylesheet" href="/map/map.css">
+    <link rel="stylesheet" href="/map/map.css" />
+    <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
     <div class="search-container">
@@ -62,25 +62,8 @@
         >
       </div>
     </div>
-
-    <nav class="bottom-nav">
-      <a href="/Main/Main.html" class="nav-item"
-        ><i class="ph-fill ph-house"></i><span>홈</span></a
-      >
-      <a href="/Upload/Upload.html" class="nav-item"
-        ><i class="ph ph-upload-simple"></i><span>업로드</span></a
-      >
-      <a href="/map/map.html" class="nav-item active"
-        ><i class="ph ph-map-pin"></i><span>map</span></a
-      >
-      <a href="/Mypage/Mypage.html" class="nav-item"
-        ><i class="ph ph-user-circle"></i><span>마이페이지</span></a
-      >
-    </nav>
-
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-    <script src="/map/map.js">
-    </script>
+    <script src="/bottomnav.js"></script>
+    <script src="/map/map.js"></script>
   </body>
 </html>
