@@ -1,0 +1,418 @@
+      /* 기본 리셋 및 폰트 설정 */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+        background-color: #fafafa; /* 웹에 어울리는 밝고 넓은 배경색 */
+        color: #333;
+        line-height: 1.6;
+        background-color: #ffbd9049;
+      }
+
+      /* 메인 웹 컨테이너 (고정된 높이와 좁은 너비 제거) */
+      .web-container {
+        width: 100%;
+        max-width: 800px; /* 폼을 넓게 사용 */
+        margin: 60px auto;
+        background-color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        border: 1px solid #e5e5e5;
+        padding: 40px;
+      }
+
+      /* 1. 상단 타이틀 영역 */
+      .page-header {
+        border-bottom: 2px solid #f0f0f0;
+        padding-bottom: 20px;
+        margin-bottom: 30px;
+      }
+      .header-title {
+        font-size: 24px;
+        font-weight: bold;
+        color: #222;
+      }
+
+      /* 폼 섹션 공통 */
+      .section {
+        margin-bottom: 36px;
+      }
+      .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 12px;
+      }
+      .section-title {
+        font-size: 16px;
+        font-weight: bold;
+        color: #222;
+      }
+      .section-desc {
+        font-size: 13px;
+        color: #888;
+      }
+
+      /* 2. 사진 추가 영역 (가로 스크롤 대신 그리드 정렬) */
+      .photo-gallery {
+        display: flex;
+        flex-wrap: wrap; /* 창 밖으로 나가지 않고 아래로 떨어짐 */
+        gap: 16px;
+        margin-top: 12px;
+      }
+      .btn-add-photo {
+        width: 120px;
+        height: 120px;
+        border: 2px dashed #ffd6c9;
+        border-radius: 8px;
+        background-color: #fff5f2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        color: #ff5a23;
+        font-size: 14px;
+        font-weight: bold;
+        transition: 0.2s;
+      }
+      .btn-add-photo:hover {
+        background-color: #ffeae3;
+      }
+      .photo-item {
+        position: relative;
+        width: 120px;
+        height: 120px;
+      }
+      .photo-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+        border: 1px solid #eee;
+      }
+      .btn-delete-photo {
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        width: 24px;
+        height: 24px;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.2s;
+      }
+      .btn-delete-photo:hover {
+        background-color: #000;
+      }
+
+      /* 3. 캡션 입력창 */
+      .caption-box {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 16px;
+        transition: 0.2s;
+      }
+      .caption-box:focus-within {
+        border-color: #ff5a23;
+      }
+      textarea {
+        width: 100%;
+        height: 140px;
+        border: none;
+        resize: vertical; /* 마우스로 크기 조절 가능 */
+        outline: none;
+        font-size: 15px;
+        font-family: inherit;
+      }
+      .char-counter {
+        text-align: right;
+        font-size: 13px;
+        color: #999;
+        margin-top: 8px;
+      }
+
+      /* 4. 태그 영역 */
+      .tag-wrapper {
+        position: relative;
+      }
+      .tag-input-box {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 16px;
+        display: flex;
+        transition: 0.2s;
+      }
+      .tag-input-box:focus-within {
+        border-color: #ff5a23;
+      }
+      .tag-input-box input {
+        border: none;
+        outline: none;
+        width: 100%;
+        font-size: 15px;
+      }
+
+      /* 자동완성 드롭다운 */
+      .autocomplete {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        border: 1px solid #eee;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        margin-top: 8px;
+        z-index: 20;
+        overflow: hidden;
+      }
+      .autocomplete.show {
+        display: block;
+      }
+      .auto-item {
+        padding: 14px 16px;
+        font-size: 14px;
+        color: #444;
+        cursor: pointer;
+      }
+      .auto-item:hover {
+        background-color: #fff5f2;
+        color: #ff5a23;
+        font-weight: bold;
+      }
+
+      /* 태그 칩 */
+      .tag-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 12px;
+      }
+      .tag-chip {
+        background-color: #fff5f2;
+        color: #ff5a23;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-size: 13px;
+        font-weight: bold;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+        border: 1px solid #ffd6c9;
+        transition: 0.2s;
+      }
+      .tag-chip:hover {
+        background-color: #ffeae3;
+      }
+
+      /* 5. 위치 및 하단 버튼 영역 */
+      .bottom-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 40px;
+        padding-top: 30px;
+        border-top: 2px solid #f0f0f0;
+      }
+
+      .btn-location {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        border: 1px solid #ddd;
+        background: white;
+        padding: 12px 20px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 14px;
+        color: #555;
+        transition: 0.2s;
+        font-weight: bold;
+      }
+      .btn-location:hover {
+        background-color: #fafafa;
+      }
+      .btn-location.active {
+        border-color: #ff5a23;
+        color: #ff5a23;
+        background-color: #fff5f2;
+      }
+
+      .action-buttons {
+        display: flex;
+        gap: 12px;
+      }
+      .btn-cancel {
+        background-color: #fff;
+        color: #555;
+        border: 1px solid #ddd;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-size: 15px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.2s;
+      }
+      .btn-cancel:hover {
+        background-color: #f0f0f0;
+      }
+      .btn-submit {
+        background-color: #ccc;
+        color: white;
+        border: none;
+        padding: 12px 32px;
+        border-radius: 8px;
+        font-size: 15px;
+        font-weight: bold;
+        cursor: not-allowed;
+        transition: 0.3s;
+      }
+      .btn-submit.active {
+        background-color: #ff5a23;
+        cursor: pointer;
+      }
+      .btn-submit.active:hover {
+        background-color: #e04e1e;
+      }
+
+      /* 모달 (전체 브라우저 화면 덮기) */
+      .modal-overlay {
+        display: none;
+        position: fixed; /* absolute -> fixed 변경하여 전체화면 커버 */
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+      }
+      .modal-overlay.show {
+        display: flex;
+      }
+
+      /* 취소 모달창 */
+      .modal-content {
+        background: white;
+        padding: 32px;
+        border-radius: 12px;
+        width: 100%;
+        max-width: 360px;
+        text-align: center;
+      }
+      .modal-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 24px;
+        color: #222;
+      }
+      .modal-buttons {
+        display: flex;
+        gap: 12px;
+      }
+      .modal-buttons button {
+        flex: 1;
+        padding: 14px;
+        border: none;
+        border-radius: 8px;
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 15px;
+      }
+      .btn-modal-close {
+        background-color: #eee;
+        color: #555;
+      }
+      .btn-modal-close:hover {
+        background-color: #e0e0e0;
+      }
+      .btn-modal-confirm {
+        background-color: #ff4d4d;
+        color: white;
+      }
+      .btn-modal-confirm:hover {
+        background-color: #e63939;
+      }
+
+      /* 로딩 스피너 */
+      .spinner {
+        width: 48px;
+        height: 48px;
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #ff5a23;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 16px auto;
+      }
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      .loading-text {
+        font-weight: bold;
+        font-size: 16px;
+        color: #fff;
+      }
+
+      /* --- 하단 바 (Bottom Navigation) 스타일 --- */
+      .bottom-nav {
+        position: fixed; /* 화면 맨 아래에 고정 */
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 70px;
+        background-color: white;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        border-top: 1px solid #eee;
+        box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.05); /* 부드러운 그림자 */
+        z-index: 1000; /* 다른 요소들보다 항상 위에 보이도록 */
+      }
+
+      .nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none; /* a 태그 밑줄 제거 */
+        color: #aaa; /* 기본 회색 */
+        gap: 6px;
+        transition: color 0.2s ease;
+      }
+
+      .nav-item i {
+        font-size: 28px;
+      }
+
+      .nav-item span {
+        font-size: 12px;
+        font-family: "main"; /* 기존에 쓰시던 폰트 적용 */
+      }
+
+      /* 마우스를 올리거나 활성화(active)된 탭의 색상 변경 */
+      .nav-item:hover,
+      .nav-item.active {
+        color: #ff4d6d; /* 예쁜 핑크색 */
+      }
+
+      /* 하단 바가 본문 내용을 가리지 않도록 여백 추가 */
+      main {
+        padding-bottom: 90px;
+      }
