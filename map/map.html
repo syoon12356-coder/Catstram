@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CatGPS</title>
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+<link rel="stylesheet" href="/map/map.css">
+  </head>
+  <body>
+    <div class="search-container">
+      <div class="search-input-wrapper">
+        <span class="search-icon">🔍</span>
+        <input type="text" placeholder="지역명 또는 고양이 이름 검색" />
+      </div>
+      <button class="filter-btn">필터</button>
+    </div>
+
+    <div id="map"></div>
+
+    <button class="my-location-btn" id="btn-my-location" title="내 위치로">
+      🎯
+    </button>
+
+    <div class="profile-card" id="cat-profile-card">
+      <button class="close-btn" id="btn-close-card">✕</button>
+
+      <div class="card-header-info">
+        <img src="" class="cat-photo" id="card-photo" />
+        <div>
+          <h3 id="card-name" class="card-title">이름</h3>
+          <p id="card-features" class="card-desc">특징</p>
+        </div>
+      </div>
+
+      <div class="card-stats">
+        <div>
+          <span style="color: #888">목격 횟수</span>
+          <span class="stat-value" id="card-sightings">0회</span>
+        </div>
+        <div>
+          <span style="color: #888">마지막 목격</span>
+          <span class="stat-value dark" id="card-time">방금 전</span>
+        </div>
+      </div>
+
+      <div class="card-details-box">
+        <div class="detail-row">
+          🐟 <b>최애 간식:</b> <span id="card-snack">츄르</span>
+        </div>
+        <div class="detail-row">
+          ⚠️ <b>알레르기:</b> <span id="card-allergy">없음</span>
+        </div>
+        <span class="memo-text" id="card-memo"
+          >상세 메모 내용이 여기에 들어갑니다.</span
+        >
+      </div>
+    </div>
+
+    <nav class="bottom-nav">
+      <a href="/Main/Main.html" class="nav-item"
+        ><i class="ph-fill ph-house"></i><span>홈</span></a
+      >
+      <a href="/Upload/Upload.html" class="nav-item"
+        ><i class="ph ph-upload-simple"></i><span>업로드</span></a
+      >
+      <a href="/map/map.html" class="nav-item active"
+        ><i class="ph ph-map-pin"></i><span>map</span></a
+      >
+      <a href="/Mypage/Mypage.html" class="nav-item"
+        ><i class="ph ph-user-circle"></i><span>마이페이지</span></a
+      >
+    </nav>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script src="/map/map.js">
+    </script>
+  </body>
+</html>
