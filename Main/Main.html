@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Catstram-main</title>
+
+    <link rel="icon" href="ico.png" type="image/png" />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="./Main.css">
+  </head>
+
+  <body>
+    <header>
+      <div class="container">
+        <div class="ico-text">
+          <img src="/images/favicon.png" alt="logo icon" style="width: 80px" />
+        </div>
+
+        <div class="logo-text">
+          <img src="/images/logo.png" alt="logo text" style="width: px" />
+        </div>
+
+        <div class="search-box">
+          <i class="ph ph-magnifying-glass"></i>
+          <input type="search" placeholder="검색어를 입력하세요" />
+        </div>
+        <div class="icon">
+          <i class="ph ph-bell"></i>
+          <i class="ph ph-paper-plane-tilt"></i>
+          <i class="ph ph-user-circle"></i>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="main">
+        <p style="font-family: main; color: #555; margin-bottom: 8px">스토리</p>
+        <div class="story">
+          <div class="story-profile"><img src="/images/cat1.jpg" /></div>
+          <div class="story-profile"><img src="/images/cat2.jpg" /></div>
+          <div class="story-profile"><img src="/images/cat3.jpg" /></div>
+          <div class="story-profile"><img src="/images/cat4.jpg" /></div>
+          <div class="story-profile"><img src="/images/cat5.jpg" /></div>
+          <div class="story-profile"><img src="/images/cat6.jpg" /></div>
+          <div class="story-profile"><img src="/images/cat7.jpg" /></div>
+          <div class="story-profile"><img src="/images/cat8.jpg" /></div>
+          <div class="story-profile"><img src="/images/cat9.jpg" /></div>
+          <div class="story-profile"><img src="/images/cat10.jpg" /></div>
+          <div class="story-profile"><img src="/images/cat11.jpg" /></div>
+          <div class="story-profile"><img src="/images/cat13.jpg" /></div>
+          <div class="story-profile"><img src="/images/cat14.jpg" /></div>
+          <div class="story-profile"><img src="/images/cat15.jpg" /></div>
+          <div class="story-profile"><img src="/images/cat16.jpg" /></div>
+        </div>
+
+        <div
+          style="
+            width: 100%;
+            height: 1px;
+            background-color: #e5e5e5;
+            margin-top: 20px;
+          "
+        ></div>
+
+        <div class="box-area">
+          <div class="box">
+            <img src="/images/peed1.png" />
+            <div class="action-heart" onclick="showAction(this)">
+              <i class="ph ph-heart"></i>
+              <span class="like_count" style="font-size: 16px">0</span>
+            </div>
+            <div class="action-url" onclick="copyAddress()">
+              <i class="ph ph-share-fat"></i>
+            </div>
+          </div>
+
+          <div class="box">
+            <img src="/images/ped2.jpg" />
+            <div class="action-heart" onclick="showAction(this)">
+              <i class="ph ph-heart"></i>
+              <span class="like_count" style="font-size: 16px">0</span>
+            </div>
+            <div class="action-url" onclick="copyAddress()">
+              <i class="ph ph-share-fat"></i>
+            </div>
+          </div>
+
+          <div class="box">
+            <img src="/images/ped3.jpg" />
+            <div class="action-heart" onclick="showAction(this)">
+              <i class="ph ph-heart"></i>
+              <span class="like_count" style="font-size: 16px">0</span>
+            </div>
+            <div class="action-url" onclick="copyAddress()">
+              <i class="ph ph-share-fat"></i>
+            </div>
+          </div>
+
+          <div class="box">
+            <img src="/images/ped4.jpeg" />
+            <div class="action-heart" onclick="showAction(this)">
+              <i class="ph ph-heart"></i>
+              <span class="like_count" style="font-size: 16px">0</span>
+            </div>
+            <div class="action-url" onclick="copyAddress()">
+              <i class="ph ph-share-fat"></i>
+            </div>
+          </div>
+
+          <div class="box">
+            <img src="/images/ped5.jpg" />
+            <div class="action-heart" onclick="showAction(this)">
+              <i class="ph ph-heart"></i>
+              <span class="like_count" style="font-size: 16px">0</span>
+            </div>
+            <div class="action-url" onclick="copyAddress()">
+              <i class="ph ph-share-fat"></i>
+            </div>
+          </div>
+
+          <div class="box">
+            <img src="/images/ped6.avif" />
+            <div class="action-heart" onclick="showAction(this)">
+              <i class="ph ph-heart"></i>
+              <span class="like_count" style="font-size: 16px">0</span>
+            </div>
+            <div class="action-url" onclick="copyAddress()">
+              <i class="ph ph-share-fat"></i>
+            </div>
+          </div>
+
+          <div class="box">
+            <img src="/images/ped7.jpg" />
+            <div class="action-heart" onclick="showAction(this)">
+              <i class="ph ph-heart"></i>
+              <span class="like_count" style="font-size: 16px">0</span>
+            </div>
+            <div class="action-url" onclick="copyAddress()">
+              <i class="ph ph-share-fat"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <nav class="bottom-nav">
+  <a href="/Main/Main.html" class="nav-item active"><i class="ph-fill ph-house"></i><span>홈</span></a>
+  <a href="/Upload/Upload.html" class="nav-item"><i class="ph ph-upload-simple"></i><span>업로드</span></a>
+  <a href="/map/map.html" class="nav-item"><i class="ph ph-map-pin"></i><span>map</span></a>
+  <a href="/Mypage/Mypage.html" class="nav-item"><i class="ph ph-user-circle"></i><span>마이페이지</span></a>
+</nav>
+
+    <script src="./Main.js"></script>
+  </body>
+</html>
+
