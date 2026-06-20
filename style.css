@@ -1,0 +1,55 @@
+/* 하단 바 전체 틀 */
+.bottom-nav {
+  position: fixed !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 70px !important;
+  background-color: white !important;
+  display: flex !important;
+  justify-content: space-around !important;
+  align-items: center !important;
+  border-top: 1px solid #eee !important;
+  box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.05) !important;
+  z-index: 99999 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* 개별 메뉴 버튼 (마이페이지 요소와 충돌하지 않도록 이름 변경) */
+.bottom-nav-item {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-decoration: none !important;
+  color: #aaa !important;
+  width: 25% !important;
+  height: 100% !important;
+  background: transparent !important;
+}
+
+/* 아이콘 폰트 강제 표시 */
+.bottom-nav-item i {
+  font-size: 28px !important;
+  display: block !important;
+  margin-bottom: 4px !important;
+}
+
+/* 텍스트 강제 표시 */
+.bottom-nav-item span {
+  font-size: 12px !important;
+  display: block !important;
+  font-family: "main", sans-serif !important;
+}
+
+/* 활성화 상태 핑크색 */
+.bottom-nav-item.active,
+.bottom-nav-item.active i,
+.bottom-nav-item.active span {
+  color: #ff4d6d !important;
+}
+
+/* 마이페이지 본문이 하단 바에 가려지지 않게 바디에 여백 추가 */
+
+
