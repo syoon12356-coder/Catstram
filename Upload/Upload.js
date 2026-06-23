@@ -46,6 +46,8 @@ fileInput.addEventListener("change", function (e) {
     if (photoCount >= 5) return; // 💡 만약 이미 사진이 5장 이상 등록되어 있다면, 더 이상 처리하지 않고 그냥 지나칩니다. (최대 5장 제한)
 
     const reader = new FileReader(); // 파일을 읽어올 파일 리더기 객체를 만듭니다.
+    //사진을 서버에 먼저 올리고 그 주소를 받아와서 띄우는 것이 아니라, 사용자의 브라우저 단에서 파일을 즉시 읽어 들입니다.
+    //메서드를 통해 실제 이미지 파일을 브라우저가 렌더링할 수 있는 긴 문자열(Data URL) 형태로 변환하여 화면에 바로 뿌려줍니다
 
     reader.onload = function (event) {
       // 리더기가 파일(이미지)을 성공적으로 다 읽었을 때 실행할 함수를 정의합니다.
@@ -72,7 +74,7 @@ fileInput.addEventListener("change", function (e) {
     };
     reader.readAsDataURL(file); // 리더기에게 실제 사진 파일을 읽어서 웹에서 쓸 수 있는 긴 주소(Data URL)로 바꾸라고 명령합니다.
   });
-  fileInput.value = ""; // 💡 같은 사진을 지웠다가 다시 올릴 때도 정상 작동할 수 있도록 input 창의 파일 선택 기록을 싹 비워둡니다.
+  fileInput.value = ""; //같은 사진을 지웠다가 다시 올릴 때도 정상 작동할 수 있도록 input 창의 파일 선택 기록을 싹 비워둡니다.
 });
 
 // =================================================================
