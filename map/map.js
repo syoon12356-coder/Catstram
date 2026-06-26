@@ -48,7 +48,7 @@ const mockCats = [
   },
 ];
 
-// 4. 지도에 고양이 마커 찍기 및 클릭 이벤트 설정
+// 4. 지도에 고양이 마커 클릭 이벤트 설정
 mockCats.forEach((cat) => {
   // mockCats 리스트 안에 있는 고양이 데이터를 하나씩 꺼내서 반복 작업(forEach)을 진행합니다.
   let marker = L.marker([cat.lat, cat.lng], { icon: catIcon }).addTo(map); // 각 고양이의 위도(lat)와 경도(lng) 위치에 아까 만든 커스텀 마커(catIcon)를 지도에 찍습니다.
