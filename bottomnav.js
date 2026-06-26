@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // 반복문이 다 돌아서 버튼 태그들이 싹 다 이어 붙여지면, 마지막으로 </nav>로 태그를 닫아 완성합니다.
   navHTML += "</nav>";
 
-  // 4. 이렇게 완성된 전체 메뉴바 HTML 코드를, 현재 웹페이지 문서의 <body> 태그 안쪽 맨 끝(beforeend)에 쏘옥 삽입합니다.
+  // 4. 이렇게 완성된 전체 메뉴바 HTML 코드를, 현재 웹페이지 문서의 <body> 태그 안쪽 맨 끝(beforeend)에 삽입합니다.
   // 이렇게 하면 HTML 파일에 직접 적지 않아도 브라우저 화면에 메뉴바가 짠 하고 나타납니다!
   document.body.insertAdjacentHTML("beforeend", navHTML);
 });
